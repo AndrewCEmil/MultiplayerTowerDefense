@@ -108,4 +108,16 @@ public class PlayerController : MonoBehaviour {
 	public void BackToLevels() {
 		Application.LoadLevel("LevelScene");
 	}
+
+	void OnEnable(){
+		Cardboard.SDK.OnTrigger += TriggerPulled;
+	}
+
+	void OnDisable(){
+		Cardboard.SDK.OnTrigger -= TriggerPulled;
+	}
+
+	void TriggerPulled() {
+		Debug.Log("The trigger was pulled!");
+	}
 }
