@@ -1,14 +1,24 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{900CA720-8AD7-550E-17A9-9DF4231A31E4}") = "MultiplayerTowerDefense", "Assembly-CSharp.csproj", "{7FF9070A-D279-013F-AE40-0B1E0DC04966}"
+EndProject
+Project("{900CA720-8AD7-550E-17A9-9DF4231A31E4}") = "MultiplayerTowerDefense", "Assembly-CSharp-Editor.csproj", "{FE6489E2-C5AA-21CA-4BF2-0FC03B220113}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{7FF9070A-D279-013F-AE40-0B1E0DC04966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF9070A-D279-013F-AE40-0B1E0DC04966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF9070A-D279-013F-AE40-0B1E0DC04966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF9070A-D279-013F-AE40-0B1E0DC04966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6489E2-C5AA-21CA-4BF2-0FC03B220113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6489E2-C5AA-21CA-4BF2-0FC03B220113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6489E2-C5AA-21CA-4BF2-0FC03B220113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6489E2-C5AA-21CA-4BF2-0FC03B220113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
