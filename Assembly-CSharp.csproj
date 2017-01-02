@@ -62,10 +62,8 @@
      <Compile Include="Assets\Cardboard\Scripts\GazeInputModule.cs" />
      <Compile Include="Assets\Cardboard\Scripts\GoalController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Level.cs" />
-     <Compile Include="Assets\Cardboard\Scripts\LevelController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\LevelLockState.cs" />
      <Compile Include="Assets\Cardboard\Scripts\LevelLocks.cs" />
-     <Compile Include="Assets\Cardboard\Scripts\LevelProvider.cs" />
      <Compile Include="Assets\Cardboard\Scripts\LevelsController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\MenuController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\MusicController.cs" />

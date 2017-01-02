@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour {
 	private bool isLinked;
 	private GameObject linkedTarget;
 	private Rigidbody rb;
-	private LevelController levelController;
 	void Start () {
 		isLinked = false;
 		linkedTarget = null;
@@ -20,7 +19,6 @@ public class PlayerController : MonoBehaviour {
 		damageSpriteController = damageSprite.GetComponent<SpriteController> ();
 		winSpriteController = winSprite.GetComponent<SpriteController> ();
 		GameObject levelObject = GameObject.Find ("LevelObject");
-		levelController = levelObject.GetComponent<LevelController> ();
 		//PlayerPrefs.DeleteAll ();
 		LoadCurrentLevel ();
 		Physics.bounceThreshold = 0;
@@ -94,17 +92,15 @@ public class PlayerController : MonoBehaviour {
 
 	void LoadCurrentLevel() {
 		int currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
-		if (currentLevel < 1 || currentLevel > LevelProvider.GetLevels().Length) {
+		if (currentLevel < 1) {
 			PlayerPrefs.SetInt ("CurrentLevel", 1);
 			currentLevel = 1;
 		}
-		levelController.LoadLevel (LevelProvider.GetLevel (currentLevel));
 	}
 
 	void LoadNextLevel() {
 		int nextLevel = PlayerPrefs.GetInt ("CurrentLevel") + 1;
 		PlayerPrefs.SetInt ("CurrentLevel", nextLevel);
-		LevelProvider.OpenLevelLock (nextLevel);
 		PlayerPrefs.Save ();
 		LoadCurrentLevel ();
 	}

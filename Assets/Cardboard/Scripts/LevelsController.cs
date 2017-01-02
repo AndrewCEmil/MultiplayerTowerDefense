@@ -8,7 +8,7 @@ public class LevelsController : MonoBehaviour {
 	static float theta = Mathf.PI / 6.0f;
 	static float radius = 5f;
 	void Start () {
-		GenerateSelectors ();
+		//GenerateSelectors ();
 	}
 
 	public void HandleLevelSelection(int level) {
@@ -19,9 +19,6 @@ public class LevelsController : MonoBehaviour {
 	}
 
 	void GenerateSelectors() {
-		foreach (Level level in LevelProvider.GetLevels()) {
-			GenerateSelector (level);
-		}
 	}
 
 	void GenerateSelector(Level level) {
