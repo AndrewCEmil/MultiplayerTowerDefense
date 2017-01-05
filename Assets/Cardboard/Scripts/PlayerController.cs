@@ -118,6 +118,11 @@ public class PlayerController : MonoBehaviour {
 		//rb.velocity = theForwardDirection * ((float)currentPowerLevel * 20f)
 	}
 
+	public void BulletCollided(GameObject bulletObj) {
+		Destroy (bulletObj);
+		Debug.Log ("Destroyed bullet");
+	}
+
 	public void BackToLevels() {
 		Application.LoadLevel("LevelScene");
 	}

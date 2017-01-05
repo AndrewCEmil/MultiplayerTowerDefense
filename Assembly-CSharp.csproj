@@ -51,6 +51,7 @@
      <Compile Include="Assets\Cardboard\Scripts\Audio\CardboardAudioListener.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Audio\CardboardAudioRoom.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Audio\CardboardAudioSource.cs" />
+     <Compile Include="Assets\Cardboard\Scripts\BulletController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\CameraController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Cardboard.cs" />
      <Compile Include="Assets\Cardboard\Scripts\CardboardEye.cs" />
