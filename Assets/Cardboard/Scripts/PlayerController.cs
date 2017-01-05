@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject damageSprite;
 	public GameObject winSprite;
 	public ParticleSystem beam;
+	public GameObject bullet;
+	public GameObject camera;
 	private SpriteController damageSpriteController;
 	private SpriteController winSpriteController;
 	private bool isLinked;
@@ -105,6 +107,17 @@ public class PlayerController : MonoBehaviour {
 		LoadCurrentLevel ();
 	}
 
+	void Shoot() {
+		GameObject newBullet = Instantiate (bullet);
+		newBullet.SetActive (true);
+		newBullet.transform.position = transform.position + camera.transform.forward;
+		Rigidbody bulletRB = newBullet.GetComponent<Rigidbody> ();
+		Vector3 theForwardDirection = camera.transform.TransformDirection (Vector3.forward);
+		Vector3 realForward = camera.transform.forward;
+		bulletRB.AddForce (theForwardDirection * 200f);
+		//rb.velocity = theForwardDirection * ((float)currentPowerLevel * 20f)
+	}
+
 	public void BackToLevels() {
 		Application.LoadLevel("LevelScene");
 	}
@@ -119,5 +132,6 @@ public class PlayerController : MonoBehaviour {
 
 	void TriggerPulled() {
 		Debug.Log("The trigger was pulled!");
+		Shoot ();
 	}
 }
