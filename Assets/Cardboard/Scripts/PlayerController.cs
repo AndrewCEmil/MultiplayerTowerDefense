@@ -24,6 +24,23 @@ public class PlayerController : MonoBehaviour {
 		//PlayerPrefs.DeleteAll ();
 		LoadCurrentLevel ();
 		Physics.bounceThreshold = 0;
+
+		string url = "localhost:4000/shoot";
+		WWW www = new WWW(url);
+		StartCoroutine(WaitForRequest(www));
+	}
+
+	IEnumerator WaitForRequest(WWW www)
+	{
+		yield return www;
+
+		// check for errors
+		if (www.error == null)
+		{
+			Debug.Log("WWW Ok!: " + www.data);
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}
 	}
 
 	public void NewTarget(GameObject target) {
