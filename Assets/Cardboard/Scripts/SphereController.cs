@@ -87,7 +87,6 @@ public class SphereController : MonoBehaviour, ICardboardGazeResponder {
 	// Called when the Cardboard trigger is used, between OnGazeEnter
 	/// and OnGazeExit.
 	public void OnGazeTrigger() {
-		playerController.NewTarget(gameObject);
 	}
 
 	#endregion

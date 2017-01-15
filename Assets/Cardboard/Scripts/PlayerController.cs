@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour {
 	public ParticleSystem beam;
 	public GameObject bullet;
 	public GameObject camera;
+	public GameObject messageBoxObject;
 	private SpriteController damageSpriteController;
 	private SpriteController winSpriteController;
 	private bool isLinked;
 	private GameObject linkedTarget;
 	private Rigidbody rb;
+	private MessageBox messageBox;
 	void Start () {
 		isLinked = false;
 		linkedTarget = null;
@@ -24,83 +26,21 @@ public class PlayerController : MonoBehaviour {
 		//PlayerPrefs.DeleteAll ();
 		LoadCurrentLevel ();
 		Physics.bounceThreshold = 0;
-
-		string url = "localhost:4000/shoot";
-		WWW www = new WWW(url);
-		StartCoroutine(WaitForRequest(www));
-	}
-
-	IEnumerator WaitForRequest(WWW www)
-	{
-		yield return www;
-
-		// check for errors
-		if (www.error == null)
-		{
-			Debug.Log("WWW Ok!: " + www.data);
-		} else {
-			Debug.Log("WWW Error: "+ www.error);
-		}
-	}
-
-	public void NewTarget(GameObject target) {
-		Unlink ();
-		Link (target);
-	}
-
-	public void Link(GameObject target) {
-		linkedTarget = target;
-		linkedTarget.GetComponent<SphereController> ().SetLinked (true);
-		beam.maxParticles = 100;
-		isLinked = true;
-	}
-
-	public void PointParticles(GameObject target) {
-		float distance = Vector3.Distance (transform.position, target.transform.position) - 1f;
-		beam.startLifetime = distance / beam.startSpeed;
-		beam.transform.LookAt (target.transform.position);
-	}
-
-
-	public void Unlink() {
-		if (isLinked) {
-			linkedTarget.GetComponent<SphereController> ().SetLinked (false);
-		}
-		isLinked = false;
-		linkedTarget = null;
-		beam.maxParticles = 0;
+		messageBox = messageBoxObject.GetComponent<MessageBox> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (isLinked) {
-			Vector3 velocityAdd = (linkedTarget.transform.position - transform.position).normalized / 50;
-			rb.velocity += velocityAdd;
-			PointParticles (linkedTarget);
-		} else {
-			//ensure no link is occuring
-			linkedTarget = null;
-			beam.maxParticles = 0;
-			if (Vector3.Distance (transform.position, new Vector3 (0, 0, 0)) > 150) {
-				Reset ();
-			}
+		while (messageBox.HasMoreMessages()) {
+			HandleMessage (messageBox.GetNextMessage ());
 		}
 	}
 
-	//Used to move player back to start
-	void Reset() {
-		rb.velocity = new Vector3 (0, 0, 0);
-		transform.position = new Vector3 (0, .5f, 0);
-		damageSpriteController.Flash ();
-		Handheld.Vibrate ();
-		isLinked = false;
-		linkedTarget = null;
-	}
+	void HandleMessage(Message message) {
+		if (message == null)
+			return;
 
-
-	//Used to clear links on new level
-	public void Clear() {
-		Unlink ();
+		print ("message: " + message.action);
 	}
 
 	public void Success() {

@@ -134,10 +134,6 @@ public class CardboardReticle : MonoBehaviour, ICardboardGazePointer {
   /// Called when the Cardboard trigger is finished. This is practically when
   /// the user releases the trigger.
   public void OnGazeTriggerEnd(Camera camera) {
-    // Put your reticle trigger end logic here :)
-		if (playerController != null) {
-			playerController.Unlink ();
-		}
   }
 
   public void GetPointerRadius(out float innerRadius, out float outerRadius) {

@@ -67,6 +67,9 @@
      <Compile Include="Assets\Cardboard\Scripts\LevelLocks.cs" />
      <Compile Include="Assets\Cardboard\Scripts\LevelsController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\MenuController.cs" />
+     <Compile Include="Assets\Cardboard\Scripts\Message.cs" />
+     <Compile Include="Assets\Cardboard\Scripts\MessageBox.cs" />
+     <Compile Include="Assets\Cardboard\Scripts\Messages.cs" />
      <Compile Include="Assets\Cardboard\Scripts\MusicController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Pose3D.cs" />
