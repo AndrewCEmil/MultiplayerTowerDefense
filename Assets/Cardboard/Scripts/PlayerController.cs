@@ -72,7 +72,14 @@ public class PlayerController : MonoBehaviour {
 		Vector3 theForwardDirection = camera.transform.TransformDirection (Vector3.forward);
 		Vector3 realForward = camera.transform.forward;
 		bulletRB.AddForce (theForwardDirection * 200f);
-		//rb.velocity = theForwardDirection * ((float)currentPowerLevel * 20f)
+		SendShootMessage ();
+	}
+
+	void SendShootMessage() {
+		Message message = new Message ();
+		message.type = "shoot";
+		message.action = "shoot";
+		messageBox.SendMessage (message);
 	}
 
 	public void BulletCollided(GameObject bulletObj) {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 public class MessageBox : MonoBehaviour {
 
@@ -20,12 +21,14 @@ public class MessageBox : MonoBehaviour {
 
 	private bool waiting;
 	private Queue<Message> messages;
+	private Queue<Message> toSend;
 	private long lastMessageId;
 
 	// Use this for initialization
 	void Start () {
 		waiting = false;
 		messages = new Queue<Message> ();
+		toSend = new Queue<Message> ();
 	}
 
 	public bool HasMoreMessages() {
@@ -34,6 +37,10 @@ public class MessageBox : MonoBehaviour {
 
 	public Message GetNextMessage() {
 		return messages.Dequeue ();
+	}
+
+	public void SendMessage(Message message) {
+		toSend.Enqueue (message);
 	}
 
 	IEnumerator WaitForRequest(WWW www)
@@ -51,18 +58,42 @@ public class MessageBox : MonoBehaviour {
 			Debug.Log("WWW Error: "+ www.error);
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (!waiting) {
 			LoadNewMessages ();
 		}
+
+		if (toSend.Count > 0) {
+			SendWaitingMessages ();
+		}
 	}
 
 	void LoadNewMessages() {
-		string url = "localhost:4000/get_messages?last_id=" + lastMessageId;
-		WWW www = new WWW(url);
+		WWW www = new WWW(GetMessageUrl());
 		StartCoroutine(WaitForRequest(www));
 	}
 
+	void SendWaitingMessages() {
+		Messages messages = new Messages ();
+		List<Message> msgs = new List<Message> ();
+		while (toSend.Count > 0) {
+			msgs.Add (toSend.Dequeue ());
+		}
+		messages.messages = msgs;
+		WWW www = new WWW (SendMessagesUrl (),  Encoding.ASCII.GetBytes(JsonUtility.ToJson(messages)));
+	}
+
+	string GetMessageUrl() {
+		return getRootUrl() + "/get_messages";
+	}
+
+	string SendMessagesUrl () {
+		return getRootUrl() + "/send_messages";
+	}
+
+	string getRootUrl() {
+		return "localhost:4000";
+	}
 }
