@@ -1,19 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Cardboard/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Cardboard/Scripts/UI/CardboardReticle.cs" Line="137" Column="3" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="15" Column="58" />
-      <File FileName="Assets/Scripts/Level.cs" Line="1" Column="1" />
+      <File FileName="Assets/Cardboard/Scripts/LevelsController.cs" Line="11" Column="4" />
+      <File FileName="Assets/Cardboard/Scripts/PlayerController.cs" Line="86" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ace/Desktop/MultiplayerTowerDefense/Assets/Cardboard/Scripts/MessageBox.cs" line="79" column="1" />
-      <Breakpoint file="/Users/ace/Desktop/MultiplayerTowerDefense/Assets/Cardboard/Scripts/MessageBox.cs" line="43" column="1" />
-      <Breakpoint file="/Users/ace/Desktop/MultiplayerTowerDefense/Assets/Scripts/PlayerController.cs" line="15" column="58" />
-      <Breakpoint file="/Users/ace/Desktop/MultiplayerTowerDefense/Assets/Scripts/PlayerController.cs" line="63" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
