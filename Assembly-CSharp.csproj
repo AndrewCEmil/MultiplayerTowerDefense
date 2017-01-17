@@ -79,9 +79,6 @@
      <Compile Include="Assets\Scripts\LevelLocks.cs" />
      <Compile Include="Assets\Scripts\LevelsController.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
-     <Compile Include="Assets\Scripts\Message.cs" />
-     <Compile Include="Assets\Scripts\MessageBox.cs" />
-     <Compile Include="Assets\Scripts\Messages.cs" />
      <Compile Include="Assets\Scripts\MusicController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SphereController.cs" />
