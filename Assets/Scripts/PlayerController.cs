@@ -3,28 +3,14 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public GameObject damageSprite;
-	public GameObject winSprite;
-	public ParticleSystem beam;
 	public GameObject bullet;
 	public GameObject camera;
 	public GameObject messageBoxObject;
-	private SpriteController damageSpriteController;
-	private SpriteController winSpriteController;
-	private bool isLinked;
 	private GameObject linkedTarget;
-	private Rigidbody rb;
 	private MessageBox messageBox;
 	void Start () {
-		isLinked = false;
-		linkedTarget = null;
-		rb = GetComponent<Rigidbody> ();
 		Physics.gravity = new Vector3(0, -0.2F, 0);
-		damageSpriteController = damageSprite.GetComponent<SpriteController> ();
-		winSpriteController = winSprite.GetComponent<SpriteController> ();
 		GameObject levelObject = GameObject.Find ("LevelObject");
-		//PlayerPrefs.DeleteAll ();
-		LoadCurrentLevel ();
 		Physics.bounceThreshold = 0;
 		messageBox = messageBoxObject.GetComponent<MessageBox> ();
 	}
@@ -41,27 +27,6 @@ public class PlayerController : MonoBehaviour {
 			return;
 
 		print ("message: " + message.action);
-	}
-
-	public void Success() {
-		//TODO score?
-		winSpriteController.Flash();
-		LoadNextLevel ();
-	}
-
-	void LoadCurrentLevel() {
-		int currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
-		if (currentLevel < 1) {
-			PlayerPrefs.SetInt ("CurrentLevel", 1);
-			currentLevel = 1;
-		}
-	}
-
-	void LoadNextLevel() {
-		int nextLevel = PlayerPrefs.GetInt ("CurrentLevel") + 1;
-		PlayerPrefs.SetInt ("CurrentLevel", nextLevel);
-		PlayerPrefs.Save ();
-		LoadCurrentLevel ();
 	}
 
 	void Shoot() {

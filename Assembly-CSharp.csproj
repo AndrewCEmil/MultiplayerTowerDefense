@@ -59,6 +59,7 @@
      <Compile Include="Assets\Cardboard\Scripts\CardboardProfile.cs" />
      <Compile Include="Assets\Cardboard\Scripts\GazeInputModule.cs" />
      <Compile Include="Assets\Cardboard\Scripts\Pose3D.cs" />
+     <Compile Include="Assets\Cardboard\Scripts\StereoController.cs" />
      <Compile Include="Assets\Cardboard\Scripts\StereoRenderEffect.cs" />
      <Compile Include="Assets\Cardboard\Scripts\UI\CardboardGaze.cs" />
      <Compile Include="Assets\Cardboard\Scripts\UI\CardboardReticle.cs" />
@@ -73,11 +74,6 @@
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\GoalController.cs" />
-     <Compile Include="Assets\Scripts\Level.cs" />
-     <Compile Include="Assets\Scripts\LevelLockState.cs" />
-     <Compile Include="Assets\Scripts\LevelLocks.cs" />
-     <Compile Include="Assets\Scripts\LevelsController.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\Message.cs" />
      <Compile Include="Assets\Scripts\MessageBox.cs" />
@@ -86,7 +82,6 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SphereController.cs" />
      <Compile Include="Assets\Scripts\SpriteController.cs" />
-     <Compile Include="Assets\Scripts\StereoController.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
