@@ -4,6 +4,7 @@ using System.Collections;
 public class BulletController : MonoBehaviour {
 
 	public GameObject player;
+	public int damage;
 	private PlayerController playerController;
 	// Use this for initialization
 	void Start () {
@@ -20,5 +21,9 @@ public class BulletController : MonoBehaviour {
 			Debug.Log ("COLLIDED");
 			playerController.BulletCollided (gameObject);
 		}
+	}
+
+	public int Damage() {
+		return damage;
 	}
 }
