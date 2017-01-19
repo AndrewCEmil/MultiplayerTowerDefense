@@ -1,0 +1,8 @@
+Client:
+  -Handle create enemy
+  -Handle damage enemy
+  -Handle create blast
+
+Server:
+  -Create enemy generator
+  -Message bus generally

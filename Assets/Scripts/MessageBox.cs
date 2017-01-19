@@ -62,7 +62,7 @@ public class MessageBox : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!waiting) {
-			LoadNewMessages ();
+			//LoadNewMessages ();
 		}
 
 		if (toSend.Count > 0) {

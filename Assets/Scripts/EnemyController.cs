@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public GameObject messageBoxObject;
+	public string enemyId;
 	public int hitPoints;
 
 	private int health;
