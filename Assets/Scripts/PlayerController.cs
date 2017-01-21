@@ -17,16 +17,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		while (messageBox.HasMoreMessages()) {
-			HandleMessage (messageBox.GetNextMessage ());
-		}
-	}
-
-	void HandleMessage(Message message) {
-		if (message == null)
-			return;
-
-		print ("message: " + message.action);
 	}
 
 	void Shoot() {

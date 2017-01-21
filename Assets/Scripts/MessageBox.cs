@@ -5,6 +5,7 @@ using System.Text;
 
 public class MessageBox : MonoBehaviour {
 
+	public GameObject enemyPrefab;
 	private static MessageBox instance = null;
 	public static MessageBox Instance {
 		get { return instance; }
@@ -62,12 +63,41 @@ public class MessageBox : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!waiting) {
-			//LoadNewMessages ();
+			LoadNewMessages ();
 		}
 
 		if (toSend.Count > 0) {
 			SendWaitingMessages ();
 		}
+
+		while (HasMoreMessages()) {
+			HandleMessage (GetNextMessage ());
+		}
+	}
+
+	void HandleMessage(Message message) {
+		if (message.type == "enemy_create") {
+			HandleEnemyCreate (message);
+		} else if (message.type == "enemy_destroy") {
+			HandleEnemyDestroy (message);
+		} else if (message.type == "enemy_destroy") {
+			HandleEnemyDamage (message);
+		}
+	}
+
+	void HandleEnemyCreate(Message message) {
+		GameObject newEnemy = Instantiate (enemyPrefab);
+		newEnemy.transform.position = new Vector3 (0, 0, 0);
+	}
+
+	void HandleEnemyDestroy(Message message) {
+		//find enemy
+		//destroy it
+	}
+
+	void HandleEnemyDamage(Message message) {
+		//find enemy
+		//damage it
 	}
 
 	void LoadNewMessages() {
